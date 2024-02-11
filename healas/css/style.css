@@ -1,0 +1,670 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, ul, li, p, figure {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:focus, input, textarea, button {
+  border: none;
+}
+
+input:focus, textarea:focus, button:focus {
+  outline: none;
+}
+
+form {
+  margin: 0;
+}
+
+@keyframes flying {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.container {
+  max-width: 1167px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 35px;
+}
+
+.about-desc__title {
+  font-size: 23px;
+  margin-bottom: 15px;
+  color: #355070;
+}
+.about-desc__subtitle {
+  font-size: clamp(30px, 5.5vw, 68px);
+  margin-bottom: 36px;
+  color: #E56B6F;
+}
+.about-desc__subtitle_sale {
+  color: #355070;
+}
+.about-desc__text {
+  font-size: 18px;
+  color: #6D597A;
+  margin-bottom: 34px;
+  line-height: 162%;
+}
+.about-desc__button {
+  display: inline-flex;
+  padding: 15px 21px 12px 21px;
+  background-image: linear-gradient(to right, #4499d9, #4499d9, #7367be);
+  transition: all ease 0.3s;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #fff;
+}
+.about-desc__button:hover {
+  background-image: linear-gradient(to left, #7367be, #7367be, #7367be);
+  box-shadow: 0 3px 10px 0 #9b9b9b;
+  background-position: left top;
+}
+
+.burger-menu {
+  z-index: 3;
+  display: none;
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+.burger-menu__line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #355070;
+}
+.burger-menu__line_2 {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.burger-menu__line_3 {
+  bottom: 0;
+}
+
+.element-animation {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.element-animation.element-show {
+  opacity: 1;
+  transition: all 1.5s;
+  transform: translateY(0%);
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  padding-top: 15px;
+}
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.header .header__logo {
+  width: 200px;
+  height: 54px;
+}
+.header .header-nav {
+  display: flex;
+  align-items: center;
+}
+.header .header-nav__list {
+  display: flex;
+  justify-content: space-between;
+}
+.header .header-nav__item {
+  margin-right: 55px;
+  padding-bottom: 3px;
+  position: relative;
+}
+.header .header-nav__item::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #355070;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+.header .header-nav__item:hover::after {
+  transform: scale(1);
+}
+.header .header-nav__item_link {
+  font-size: 18px;
+  color: #355070;
+}
+.header .header-nav__button {
+  display: inline-flex;
+  padding: 15px 21px 12px 21px;
+  background-image: linear-gradient(to right, #4499d9, #4499d9, #7367be);
+  transition: all ease 0.3s;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #fff;
+}
+.header .header-nav__button:hover {
+  background-image: linear-gradient(to left, #7367be, #7367be, #7367be);
+  box-shadow: 0 3px 10px 0 #9b9b9b;
+  background-position: left top;
+}
+
+.about-rent {
+  padding: 145px 0 98px 0;
+  background: url("../images/bg.png") center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.about-rent::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #FFD9C3;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  z-index: -1;
+}
+.about-rent .about-desc {
+  position: relative;
+}
+.about-rent .about-desc::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: url("../images/svg/cross.svg") no-repeat;
+  bottom: 50px;
+  left: 50%;
+  animation: 10s linear infinite rotating;
+}
+.about-rent .about-img {
+  position: relative;
+  width: 100%;
+}
+.about-rent .about-img__box-2 {
+  position: absolute;
+  top: 30px;
+  left: -70px;
+}
+.about-rent .about-img__box-1 {
+  position: absolute;
+  bottom: -60px;
+  right: -50px;
+}
+
+.about-vr {
+  padding: 130px 0 50px 0;
+  background-color: #F5E2E1;
+  position: relative;
+}
+.about-vr::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 440px;
+  height: 708px;
+  background: url("../images/decor.png") no-repeat;
+  top: -200px;
+  right: 0;
+}
+.about-vr .about-img {
+  position: relative;
+}
+.about-vr .about-img__gamer {
+  position: relative;
+  z-index: 5;
+}
+.about-vr .about-img__screen {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  z-index: 2;
+  animation: 3s linear infinite flying;
+}
+
+.about-consoles {
+  padding: 113px 0 156px 0;
+  background: url("../images/bg-2.png") center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.about-consoles::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #F5E2E1;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.about-consoles .about-img {
+  position: relative;
+}
+.about-consoles .about-img__gamepad {
+  position: absolute;
+  left: 20px;
+  top: 230px;
+  animation: 3s linear infinite flying;
+}
+.about-consoles .about-img__small-gear {
+  position: absolute;
+  right: 180px;
+  top: 100px;
+  animation: 6s linear infinite reverse rotating;
+}
+.about-consoles .about-img__big-gear {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  animation: 6s linear infinite reverse rotating;
+}
+
+.price {
+  background-color: #FEE9DC;
+  padding: 47px 0 120px 0;
+}
+.price__title {
+  font-size: 23px;
+  margin-bottom: 15px;
+  color: #355070;
+  text-align: center;
+}
+.price__subtitle {
+  font-size: clamp(30px, 5.5vw, 68px);
+  margin-bottom: 36px;
+  color: #E56B6F;
+  text-align: center;
+}
+.price__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+}
+.price .price-item {
+  background-color: #FBDACF;
+  border-radius: 25px;
+  padding: 36px 40px 40px 40px;
+  transition: all ease 0.3s;
+}
+.price .price-item:hover {
+  transform: scale(1.1);
+}
+.price .price-item__name {
+  color: #355070;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+.price .price-item__value {
+  font-weight: 700;
+  font-size: 18px;
+  color: #E56B6F;
+  margin-bottom: 30px;
+}
+.price .price-item__value_valute {
+  font-size: 27px;
+}
+.price .price-item__value_digit {
+  font-size: 50px;
+}
+.price .price-item__tariffs {
+  margin-bottom: 60px;
+}
+.price .price-item__tariff {
+  font-size: 18px;
+  color: #355070;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+.price .price-item__tariff :last-child {
+  margin-bottom: 0px;
+}
+.price .price-item__tariff::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  background: url("../images/svg/check.svg") no-repeat;
+  left: 0;
+  bottom: 7px;
+}
+.price .price-item__btn {
+  display: inline-flex;
+  padding: 15px 21px 12px 21px;
+  background-image: linear-gradient(to right, #4499d9, #4499d9, #7367be);
+  transition: all ease 0.3s;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #fff;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.price .price-item__btn:hover {
+  background-image: linear-gradient(to left, #7367be, #7367be, #7367be);
+  box-shadow: 0 3px 10px 0 #9b9b9b;
+  background-position: left top;
+}
+
+.footer {
+  padding: 25px 0 20px 0;
+  background-color: #FEE9DC;
+  border-top: 1px solid #000;
+}
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__logo {
+  width: 200px;
+  height: 54px;
+}
+.footer .footer-media {
+  display: flex;
+}
+.footer .footer-media__item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FBDACF;
+  margin-right: 15px;
+  transition: all ease 0.3s;
+  position: relative;
+}
+.footer .footer-media__item:last-child {
+  margin-right: 0;
+}
+.footer .footer-media__item:hover {
+  background-color: #6D597A;
+}
+.footer .footer-media__item:hover .footer-media__pic {
+  fill: #fff;
+}
+.footer .footer-media__link {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.footer .footer-media__pic {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all ease 0.3s;
+  fill: #446381;
+}
+
+@media (max-width: 1024px) {
+  .burger-menu {
+    display: block;
+  }
+  .burger-menu:hover {
+    cursor: pointer;
+  }
+  .header {
+    padding: 0 25px;
+  }
+  .header__wrapper {
+    align-items: center;
+  }
+  .header .header-nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    transition: 0.5s linear;
+    transform: translateX(100%);
+    z-index: 4;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header .header-nav__list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header .header-nav__item {
+    margin-right: 0;
+    margin-bottom: 55px;
+  }
+  .header .header-active {
+    transform: translateX(0%);
+    border-radius: 0;
+  }
+  .header .header-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 20px;
+  }
+  .header .header-close:hover {
+    cursor: pointer;
+  }
+  .header .header-close__line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background: #355070;
+    transform: translateY(-50%);
+  }
+  .header .header-close__line:first-child {
+    transform: rotate(45deg);
+  }
+  .header .header-close__line:last-child {
+    transform: rotate(-45deg);
+  }
+  .about-rent {
+    padding: 145px 25px 98px 25px;
+  }
+  .about-rent .about-desc::before {
+    display: none;
+    animation: none;
+  }
+  .about-rent .about-img__character {
+    width: 100%;
+    height: auto;
+  }
+  .about-rent .about-img__box-1 {
+    width: 200px;
+    height: auto;
+    right: 0px;
+  }
+  .about-rent .about-img__box-2 {
+    width: 200px;
+    height: auto;
+    top: 15px;
+    left: -50px;
+  }
+  .about-vr {
+    padding: 50px 25px;
+  }
+  .about-vr .about-img__gamer {
+    width: 100%;
+    height: auto;
+  }
+  .about-vr .about-img__screen {
+    width: 220px;
+    height: auto;
+    animation: none;
+  }
+  .about-consoles {
+    padding: 50px 25px;
+  }
+  .about-consoles .about-img__decor {
+    width: 100%;
+    height: auto;
+  }
+  .about-consoles .about-img__gamepad {
+    width: 350px;
+    left: 25px;
+    top: 215px;
+    animation: none;
+  }
+  .about-consoles .about-img__small-gear {
+    width: 60px;
+    height: auto;
+    animation: none;
+  }
+  .about-consoles .about-img__big-gear {
+    width: 100px;
+    height: auto;
+    top: 25px;
+    right: 85px;
+    animation: none;
+  }
+  .price {
+    padding: 47px 25px 70px 25px;
+  }
+  .price .price-item {
+    padding: 26px 30px 30px 30px;
+  }
+  .price .price-item__name {
+    font-size: 28px;
+  }
+  .price .price-item__value_valute {
+    font-size: 27px;
+  }
+  .price .price-item__value_digit {
+    font-size: 35px;
+  }
+  .price .price-item__tariff {
+    font-size: 16px;
+  }
+  .footer {
+    padding: 25px;
+  }
+}
+@media (max-width: 428px) {
+  .wrapper {
+    grid-row-gap: 55px;
+  }
+  .header .header-nav {
+    width: 100%;
+  }
+  .header .header-nav__item_link {
+    font-size: 30px;
+  }
+  .about-desc {
+    order: 2;
+    grid-column: span 2;
+  }
+  .about-desc__button {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  .about-rent {
+    padding: 100px 25px 60px 25px;
+  }
+  .about-rent .about-img {
+    grid-column: span 2;
+  }
+  .about-rent .about-img__box-1 {
+    width: 150px;
+    right: -20px;
+    bottom: -45px;
+  }
+  .about-rent .about-img__box-2 {
+    width: 150px;
+    top: 0;
+    left: -29px;
+  }
+  .about-vr::before {
+    width: 100px;
+    height: 165px;
+    background-size: cover;
+    top: -26px;
+    right: 0;
+  }
+  .about-vr .about-img {
+    grid-column: span 2;
+  }
+  .about-vr .about-img__screen {
+    width: 170px;
+    right: 8px;
+    top: -30px;
+  }
+  .about-consoles .about-img {
+    grid-column: span 2;
+  }
+  .about-consoles .about-img__gamepad {
+    width: 280px;
+    top: 150px;
+  }
+  .about-consoles .about-img__small-gear {
+    width: 50px;
+    right: 165px;
+    top: 80px;
+  }
+  .about-consoles .about-img__big-gear {
+    width: 80px;
+  }
+  .price__wrapper {
+    grid-row-gap: 30px;
+  }
+  .price .price-item {
+    grid-column: span 4;
+  }
+  .footer__wrapper {
+    flex-direction: column;
+  }
+  .footer .footer__link {
+    margin-bottom: 30px;
+  }
+}/*# sourceMappingURL=style.css.map */

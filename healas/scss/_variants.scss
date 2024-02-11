@@ -1,0 +1,38 @@
+$light: #fff;
+$dark: #355070;
+$purple: #6D597A;
+$red-purple: #B56576;
+$dark-pink: #E56B6F;
+$beige: #EAAC8B;
+$fz: 18px;
+
+@mixin title{
+    font-size: 23px;
+    margin-bottom: 15px;
+    color: $dark;
+}
+@mixin subtitle{
+    font-size: clamp(30px,5.5vw,68px);
+    margin-bottom: 36px;
+    color: $dark-pink;
+}
+@mixin text{
+    font-size: $fz;
+    color: $purple;
+    margin-bottom: 34px;
+    line-height: 162%;
+}
+@mixin button{
+    display: inline-flex;
+    padding: 15px 21px 12px 21px; 
+    background-image: linear-gradient(to right,#4499d9,#4499d9,#7367be);
+    transition: all  ease .3s;
+    border-radius: 25px;
+    font-size: $fz;
+    color: $light;
+    &:hover{
+        background-image: linear-gradient(to left,#7367be,#7367be,#7367be);
+        box-shadow: 0 3px 10px 0 #9b9b9b;
+        background-position: left top;
+    }
+}
